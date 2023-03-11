@@ -28,7 +28,7 @@ export const useForm = (initialForm,validateForm,dispatch)=>{
     setErrors(validateForm(form));
     
     if(Object.keys(errors).length === 0){
-        dispatch(createDog(form));
+        // dispatch(createDog(form));
         alert('Paciente ingresado con exito');
         
         /**Se formatea estado */
