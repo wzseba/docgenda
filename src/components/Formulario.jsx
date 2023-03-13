@@ -1,5 +1,4 @@
 
-import { useDispatch } from "react-redux";
 import { validationsForm } from "../helpers/validator";
 import { useForm } from "../hooks/useForm";
 
@@ -11,19 +10,19 @@ const initialForm = {
 }
 
 const Formulario = () => {
-    const dispatch = useDispatch();
+    
     const {
       form,
       errors,
       handleChange,
       handleBlur,
       handleSubmit
-    } = useForm(initialForm,validationsForm,dispatch)
+    } = useForm(initialForm,validationsForm)
   
   
     return (
       
-    <form className="md:w-1/2 lg:w-2/5 mx-5 shadow-md rounded-lg py-8 px-5 mb-10" onSubmit={handleSubmit}>
+    <form className="md:w-auto mx-36 shadow-md rounded-lg py-8 px-5 mt-10" onSubmit={handleSubmit}>
         <div className="mb-5">
             <label className="block font-bold uppercase text-gray-700">
             Nombre:
@@ -37,7 +36,7 @@ const Formulario = () => {
             onBlur={handleBlur}
             required/>
             </label>
-        {errors.name && <p>{errors.name}</p>}
+        {errors.name && <p className="text-red-500 ml-1">{errors.name}</p>}
         </div>
     
         <div className="mb-5">
@@ -53,7 +52,7 @@ const Formulario = () => {
             onBlur={handleBlur}
             />
             </label>
-            {errors.email && <p>{errors.email}</p>}
+            {errors.email && <p className="text-red-500 ml-1">{errors.email}</p>}
         </div>
     
         <div className="mb-5">
@@ -69,7 +68,7 @@ const Formulario = () => {
             onBlur={handleBlur}
             required/>
             </label>
-            {errors.telefono && <p>{errors.telefono}</p>}
+            {errors.telefono && <p className="text-red-500 ml-1">{errors.telefono}</p>}
         </div>
         
         <div className="mb-5">
