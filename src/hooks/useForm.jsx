@@ -1,8 +1,12 @@
 import { useState } from "react";
+import { addPatient } from "../features/pacientes/pacienteSlice";
+import { v4 as uuid } from "uuid";
+import { useDispatch } from "react-redux";
 
 
-export const useForm = (initialForm,validateForm,dispatch)=>{
+export const useForm = (initialForm,validateForm)=>{
 
+   const dispatch = useDispatch();
    const [form,setForm] = useState(initialForm);
    const [errors,setErrors] = useState({});
 
@@ -28,7 +32,10 @@ export const useForm = (initialForm,validateForm,dispatch)=>{
     setErrors(validateForm(form));
     
     if(Object.keys(errors).length === 0){
-        // dispatch(createDog(form));
+        dispatch(addPatient({
+            ...form,
+            id: uuid()
+        }));
         alert('Paciente ingresado con exito');
         
         /**Se formatea estado */
