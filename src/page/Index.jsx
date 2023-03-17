@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux"
 import { Link } from "react-router-dom";
 import Pacientes from "../components/Pacientes"
+import SearchBar from "../components/SearchBar";
 
 
 const Index = () => {
@@ -12,6 +13,7 @@ const Index = () => {
     <>
     <h1 className="font-black text-4xl text-blue-800">Pacientes</h1>
     <p className="mt-3">Administra tus pacientes</p>
+    <SearchBar/>
 
     {
       pacientes?.length ? (
