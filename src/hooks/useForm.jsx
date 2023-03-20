@@ -2,10 +2,12 @@ import { useState } from "react";
 import { addPatient } from "../features/pacientes/pacienteSlice";
 import { v4 as uuid } from "uuid";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 
 export const useForm = (initialForm,validateForm)=>{
 
+   const navigate = useNavigate();
    const dispatch = useDispatch();
    const [form,setForm] = useState(initialForm);
    const [errors,setErrors] = useState({});
@@ -40,6 +42,9 @@ export const useForm = (initialForm,validateForm)=>{
         
         /**Se formatea estado */
         setForm(initialForm);
+
+        /**Redireccion a pacientes */
+        navigate("/");
     }else{
         return;
     }

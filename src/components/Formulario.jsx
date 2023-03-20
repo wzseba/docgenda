@@ -22,7 +22,7 @@ const Formulario = () => {
   
     return (
       
-    <form className="md:w-auto mx-36 shadow-md rounded-lg py-8 px-5 mt-10" onSubmit={handleSubmit}>
+    <form className="md:w-auto mx-48 shadow-md rounded-lg py-8 px-5 mt-10" onSubmit={handleSubmit}>
         <div className="mb-5">
             <label className="block font-bold uppercase text-gray-700">
             Nombre:
