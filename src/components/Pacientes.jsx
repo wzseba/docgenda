@@ -5,7 +5,10 @@ import { deletePatient, editPatient } from "../features/pacientes/pacienteSlice"
 const Pacientes = ({paciente}) => {
 
   const navigate = useNavigate();
-  
+
+  const pacientes = useSelector(state => state.paciente);
+  console.log(pacientes);
+
   const { name, sintomas, email, telefono, id} = paciente
 
 return (
