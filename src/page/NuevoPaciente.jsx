@@ -1,11 +1,7 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import Formulario from '../components/Formulario'
-import Pacientes from '../components/Pacientes'
-
 
 const NuevoPaciente = () => {
-  const paciente = useSelector(state => state.paciente);
   
   return (
     <>
