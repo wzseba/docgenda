@@ -10,12 +10,12 @@ import { Provider } from 'react-redux'
 import Layout from './components/Layout';
 import NuevoPaciente from './page/NuevoPaciente';
 import Index from './page/Index';
-import Sesion from './page/Sesion';
+import Login from './page/Login';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Sesion/>,
+    element: <Login/>,
   },
   {
     path: "/pacientes",
