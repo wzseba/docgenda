@@ -6,7 +6,7 @@ const Login = () => {
  
   const { register, handleSubmit, reset, formState: { errors, isSubmitSuccessful }} = useForm()
 
-  const loginUser = (data)=>{
+  const onSubmit = (data)=>{
     
     console.log('enviado data..', data);
     
@@ -22,7 +22,7 @@ const Login = () => {
   return (
     <div className='flex flex-col h-screen justify-center items-center'>
       <h1 className='text-2xl text-center font-bold uppercase'>Login component</h1>
-      <form onSubmit={handleSubmit(loginUser)} className="w-80 md:w-1/2 lg:w-1/3 mx-48 shadow-md rounded-lg py-8 px-5 mt-10" >
+      <form onSubmit={handleSubmit(onSubmit)} className="w-80 md:w-1/2 lg:w-1/3 mx-48 shadow-md rounded-lg py-8 px-5 mt-10" >
         
         <div className="mb-5">
             <label className="block font-bold uppercase text-gray-700">
@@ -30,7 +30,7 @@ const Login = () => {
             </label>
 
             <input 
-            type="text" 
+            type="email" 
             {...register('email', { required: true, pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ })}
             placeholder='Ingrese Email'
             className="border-2 w-full p-2 mt-2 placeholder-gray-400 rounded-md"
