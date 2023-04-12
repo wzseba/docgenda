@@ -1,25 +1,28 @@
 import { useDispatch, useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom";
-import { deletePatient, editPatient } from "../features/pacientes/pacienteSlice";
 
-const Pacientes = ({paciente}) => {
+import { deletePatient, editPatient, getPacientes } from "../features/pacientes/pacienteSlice";
+import { useEffect } from "react";
 
-  const navigate = useNavigate();
+const Pacientes = () => {
+
+  const dispatch = useDispatch();
 
   const pacientes = useSelector(state => state.paciente);
-  console.log(pacientes);
+  console.log('componente pacientes ', pacientes);
 
-  const { name, sintomas, email, telefono, id} = paciente
+//   useEffect(()=>{
+//     dispatch(getPacientes());
+//   },[dispatch])
 
 return (
   <tr className="border-b">
       <td className="p-6 space-y-2 text-center">
-          <p className="text-2xl text-gray-800">{name}</p>
+          <p className="text-2xl text-gray-800">{pacientes[0].nombre}</p>
           
       </td>
       <td className="p-6 text-center">
-          <p className="text-gray-600"> <span className="text-gray 800 uppercase font-bold">Email: </span>{email} </p>
-          <p className="text-gray-600"> <span className="text-gray 800 uppercase font-bold">Tel: </span>{telefono} </p>
+          <p className="text-gray-600"> <span className="text-gray 800 uppercase font-bold">Email: </span>{pacientes[0].email} </p>
+          <p className="text-gray-600"> <span className="text-gray 800 uppercase font-bold">Tel: </span>{pacientes[0].telefono} </p>
       </td>
       <td className="p-6 flex items-center justify-evenly flex-col gap-3">
           <button
