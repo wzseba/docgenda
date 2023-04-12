@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from 'axios';
 
 const initialState = []
 
@@ -31,3 +32,16 @@ export const pacienteSlice = createSlice({
 export const { addPatient, deletePatient, editPatient } = pacienteSlice.actions
 
 export default pacienteSlice.reducer
+
+export const getPacientes = createAsyncThunk(
+    'users/getPacientes',
+    async (paciente, {rejectWithValue}) => {
+      try {
+        const response = await axios.get('http://localhost:3001/pacientes')
+        return response.data
+      } catch (error) {
+        console.log(error);
+        return rejectWithValue(error.response?.data);
+      }
+    }
+  )
