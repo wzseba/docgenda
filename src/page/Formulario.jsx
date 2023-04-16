@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-
+import { useSelector, useDispatch } from "react-redux";
+import { pacientesAdd } from "../features/pacientes/pacienteSlice";
 
 const Formulario = () => {
   const {
@@ -10,8 +11,14 @@ const Formulario = () => {
     formState: { errors, isSubmitSuccessful },
   } = useForm();
 
+  const pacientes = useSelector((state)=> state.pacientes);
+  const dispatch = useDispatch();
+
+  console.log('estoy en useSelector ',pacientes);
+
   const onSubmit = (data) => {
     console.log("enviado data..", data);
+    dispatch(pacientesAdd(data));
   };
 
   useEffect(() => {
