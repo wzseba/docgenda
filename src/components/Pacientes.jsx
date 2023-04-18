@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from "react-redux"
 
-import { deletePatient, editPatient, getPacientes } from "../features/pacientes/pacienteSlice";
-import { useEffect } from "react";
+// import { deletePatient, editPatient, getPacientes } from "../features/pacientes/pacienteSlice";
+// import { useEffect } from "react";
 
 const Pacientes = () => {
 
-  const dispatch = useDispatch();
+//   const dispatch = useDispatch();
 
-  const pacientes = useSelector(state => state.paciente);
-  console.log('componente pacientes ', pacientes);
+//   const pacientes = useSelector(state => state.paciente);
+//   console.log('componente pacientes ', pacientes);
 
 //   useEffect(()=>{
 //     dispatch(getPacientes());
@@ -17,12 +17,12 @@ const Pacientes = () => {
 return (
   <tr className="border-b">
       <td className="p-6 space-y-2 text-center">
-          <p className="text-2xl text-gray-800">{pacientes[0].nombre}</p>
+          <p className="text-2xl text-gray-800">nombre paciente</p>
           
       </td>
       <td className="p-6 text-center">
-          <p className="text-gray-600"> <span className="text-gray 800 uppercase font-bold">Email: </span>{pacientes[0].email} </p>
-          <p className="text-gray-600"> <span className="text-gray 800 uppercase font-bold">Tel: </span>{pacientes[0].telefono} </p>
+          <p className="text-gray-600"> <span className="text-gray 800 uppercase font-bold">Email: </span>email paciente </p>
+          <p className="text-gray-600"> <span className="text-gray 800 uppercase font-bold">Tel: </span>telefono paciente</p>
       </td>
       <td className="p-6 flex items-center justify-evenly flex-col gap-3">
           <button

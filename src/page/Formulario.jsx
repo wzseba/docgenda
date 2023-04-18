@@ -11,10 +11,7 @@ const Formulario = () => {
     formState: { errors, isSubmitSuccessful },
   } = useForm();
 
-  const pacientes = useSelector((state)=> state.pacientes);
   const dispatch = useDispatch();
-
-  console.log('estoy en useSelector ',pacientes);
 
   const onSubmit = (data) => {
     console.log("enviado data..", data);
