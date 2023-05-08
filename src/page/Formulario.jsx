@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useSelector, useDispatch } from "react-redux";
-import { pacientesAdd } from "../features/pacientes/pacienteSlice";
+import { useDispatch } from "react-redux";
+import { pacientesAdd } from "../features/pacientes/thunks";
 
 const Formulario = () => {
   const {
@@ -14,7 +14,6 @@ const Formulario = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
-    console.log("enviado data..", data);
     dispatch(pacientesAdd(data));
   };
 
