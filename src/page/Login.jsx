@@ -1,8 +1,12 @@
+import { useDispatch } from 'react-redux';
+import { checkingAuthentication } from "../features/auth/thunks";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEyeSlash, FaRegEnvelope, FaEye } from "react-icons/fa";
 
+
 const Login = () => {
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -13,6 +17,7 @@ const Login = () => {
 
   const onSubmit = (data) => {
     console.log("enviado data..", data);
+    dispatch(checkingAuthentication())
   };
 
   useEffect(() => {
