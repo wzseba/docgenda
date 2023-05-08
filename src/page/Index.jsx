@@ -1,11 +1,19 @@
-import { useSelector } from "react-redux"
+import { useSelector,useDispatch } from "react-redux"
+import { useEffect } from "react";
 import Pacientes from "../components/Pacientes"
 import SearchBar from "../components/SearchBar";
 
+import { getPacientes } from "../features/pacientes/thunks";
 
 const Index = () => {
 
- const pacientes = useSelector(state => state.paciente);
+ const {pacientes} = useSelector(state => state.paciente);
+
+ const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(getPacientes());
+  },[])
   
   return ( 
 
@@ -24,19 +32,17 @@ const Index = () => {
               <th className="p-2">Acciones</th>
             </tr>
           </thead>
-          <tbody>
+          
             {
               pacientes.map( paciente => (
-                
+                <tbody key={paciente.id}>
                   <Pacientes
                     paciente={paciente}
-                    key={paciente.id}
                   />
-                
-                
+                </tbody>
               ))
             }
-          </tbody>
+          
         </table>
       ) : (
         <p className="text-center mt-10">No hay pacientes aun</p>
