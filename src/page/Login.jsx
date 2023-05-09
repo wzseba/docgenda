@@ -3,6 +3,7 @@ import { checkingAuthentication } from "../features/auth/thunks";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaEyeSlash, FaRegEnvelope, FaEye } from "react-icons/fa";
+import { FcGoogle } from 'react-icons/fc';
 
 
 const Login = () => {
@@ -102,12 +103,29 @@ const Login = () => {
           )}
         </div>
 
+        <div className='flex justify-around'>
 
-        <input
-          type="submit"
-          className="bg-gray-700 w-full p-3 text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer transition-all"
-          value="Ingresar"
-        />
+          <div className="relative rounded-md shadow-sm">
+              <input 
+              type="submit"
+              className="w-72 md:w-40 p-3 rounded-md bg-gray-700 border-none text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer" 
+              value="ingresar"/>
+              <div className="absolute inset-y-0 left-3 flex items-center">
+                <FcGoogle/>
+              </div>
+          </div>
+          <div className="relative rounded-md shadow-sm">
+              <input 
+              type="submit"
+              className="w-72 md:w-40 p-3 rounded-md bg-gray-700 border-none text-white uppercase font-bold hover:bg-indigo-700 cursor-pointer" 
+              value="google"/>
+              <div className="absolute inset-y-0 left-3 flex items-center">
+                <FcGoogle/>
+              </div>
+          </div>
+        
+        </div>
+        
       </form>
     </div>
   );
